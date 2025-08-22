@@ -33,7 +33,7 @@ Authorization: Bearer {token}
 Content-Type: application/json
 ```
 
-Exemplo de payload:
+<!-- Exemplo de payload:
 
 ```json
 {
@@ -49,4 +49,4 @@ Rota para listar despesas:
 ```
 GET http://localhost:8000/api/expenses
 Authorization: Bearer {token}
-```
+``` -->
