@@ -16,7 +16,7 @@ Projeto simples para rastrear despesas pessoais, permitindo cadastrar, listar e 
 * Filtra despesas por data, categoria ou valor
 * Pode usar cache no Redis para acelerar consultas frequentes
 
-## Como usar
+<!-- ## Como usar
 
 Clone o projeto:
 
@@ -33,7 +33,7 @@ Authorization: Bearer {token}
 Content-Type: application/json
 ```
 
-<!-- Exemplo de payload:
+Exemplo de payload:
 
 ```json
 {
