@@ -8,16 +8,6 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function logIn()
-    {
-        //
-    }
-
-    public function logOut()
-    {
-        //
-    }
-
     /**
      * Display a listing of the resource.
      */

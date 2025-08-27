@@ -11,25 +11,30 @@ Route::get('/ping', function (Request $req) {
     throw new ErrorException('houve um ping');
 });
 
+
 Route::get('/user/login', [AuthController::class, 'logIn']);
 Route::get('/user/logout', [AuthController::class, 'logOut']);
 
-Route::get('/users', [UserController::class, 'index']);
-Route::post('/user', [UserController::class, 'store']);
-Route::get('/user/{id}', [UserController::class, 'show']);
-Route::put('/user/{id}', [UserController::class, 'update']);
-Route::delete('/user/{id}', [UserController::class, 'destroy']);
+Route::middleware('auth')->controller(UserController::class)->group(function () {
+    Route::get('/users', 'index');
+    Route::post('/user', 'store');
+    Route::get('/user/{id}', 'show');
+    Route::put('/user/{id}', 'update');
+    Route::delete('/user/{id}', 'destroy');
+});
 
-Route::get('/categories', [CategoryController::class, 'index']);
-Route::post('/category', [CategoryController::class, 'store']);
-Route::get('/category/{id}', [CategoryController::class, 'show']);
-Route::put('/category/{id}', [CategoryController::class, 'update']);
-Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
+Route::middleware('auth')->controller(CategoryController::class)->group(function () {
+    Route::get('/categories', 'index');
+    Route::post('/category', 'store');
+    Route::get('/category/{id}', 'show');
+    Route::put('/category/{id}', 'update');
+    Route::delete('/category/{id}', 'destroy');
+});
 
-Route::get('/category/expenses', [ExpenseController::class, 'index']);
-Route::post('/category/expense', [ExpenseController::class, 'store']);
-Route::get('/category/expense/{id}', [ExpenseController::class, 'show']);
-Route::put('/category/expense/{id}', [ExpenseController::class, 'update']);
-Route::delete('/category/expense/{id}', [ExpenseController::class, 'destroy']);
-
-
+Route::middleware('auth')->controller(ExpenseController::class)->group(function () {
+    Route::get('/category/expenses', 'index');
+    Route::post('/category/expense', 'store');
+    Route::get('/category/expense/{id}', 'show');
+    Route::put('/category/expense/{id}', 'update');
+    Route::delete('/category/expense/{id}', 'destroy');
+});
